@@ -5,6 +5,9 @@ class User < ApplicationRecord
   before_validation :ensure_session_token
   attr_reader :password
 
+  has_many :subs
+  has_many :posts
+
   def self.generate_session_token
     SecureRandom.urlsafe_base64
   end
