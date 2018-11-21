@@ -8,8 +8,8 @@ class SessionsController < ApplicationController
       params[:user][:password]
     )
     if user
-      login(user)
-      # redirect_to
+      login!(user)
+      redirect_to subs_url
     else
       flash.now[:errors] = ['Invalid Credentials']
       render :new
